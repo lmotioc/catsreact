@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Cat from "./components/Cat";
+import AddCat from "./components/AddCat";
 import CatList from "./components/CatList";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Switch>
             <Route exact path={["/", "/cats"]} component={CatList} />
             <Route path="/cats/:id" component={Cat} />
+            <Route path="/add" component={AddCat} />
           </Switch>
         </div>
       </div>

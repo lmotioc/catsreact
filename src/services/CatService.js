@@ -1,11 +1,5 @@
 import http from "../http-common";
 
-//use axios with the params 
-  //   axios.create({
-  //   baseURL: "http://localhost:3001",
-  //   headers: {
-  //     "Content-type": "application/json"
-  //   }
 
 const getAll = () => {
   //todo

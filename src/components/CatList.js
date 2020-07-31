@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import CatDataService from "../services/CatService";
 import { Link } from "react-router-dom";
+import http from '../http-common';
 
 const CatList = () => {
   const [cats, setCats] = useState([
@@ -17,8 +17,8 @@ const CatList = () => {
   ]);
   const [currentCat, setCurrentCat] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  
 
+ 
   const setActiveCat = (cat, index) => {
     setCurrentCat(cat);
     setCurrentIndex(index);
@@ -81,7 +81,13 @@ const CatList = () => {
               </label>{" "}
               {currentCat.description}
             </div>
-                        
+            <Link
+              to={"/cats/" + currentCat.id}
+            >
+               <button className="btn btn-primary">
+                Edit
+              </button>
+            </Link>
           </div>
         ) : (
           <div>
