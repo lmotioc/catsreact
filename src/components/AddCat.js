@@ -22,6 +22,20 @@ const Cat = props => {
 
     // command to redirect to list
     // props.history.push("/cats"); 
+    http.post('/cats', {
+    
+    name: currentCat.name,
+    description: currentCat.description,
+    id: parseInt(currentCat.id,10)
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  props.history.push("/cats");
+
 
     };
 
@@ -32,12 +46,12 @@ const Cat = props => {
           <h4>Cat</h4>
           <form>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
                 className="form-control"
-                id="title"
-                name="title"
+                id="name"
+                name="name"
                 value={currentCat.title}
                 onChange={handleInputChange}
               />
@@ -50,6 +64,17 @@ const Cat = props => {
                 id="description"
                 name="description"
                 value={currentCat.description}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="id">ID</label>
+              <input
+                type="text"
+                className="form-control"
+                id="id"
+                name="id"
+                value={currentCat.id}
                 onChange={handleInputChange}
               />
             </div>
